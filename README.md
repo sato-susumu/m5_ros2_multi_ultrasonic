@@ -1,12 +1,16 @@
 # m5_ros2_multi_ultrasonic
 ### 概要
 M5Atomとmicro-ROSを使って、複数の超音波センサー情報を配信するROS2プログラムです。
-
-### 概要図、作成例
+<br/>
+<br/>
+<p align="center">
+<img src="./image/m5_ros2_multi_ultrasonic_overview.png" />
+</p>
+<br/>
 
 ### 動作確認環境
 - PlatformIOを使ったビルド環境、micro-ROSエージェント実行環境  
-  - PC: TRIGKEY: Green G5  
+  - PC: TRIGKEY Green G5  
   - OS: Ubuntu 22.04.3  
   - ROS2 : Humble  
   - Software: PlatformIO, VSCode, docker
@@ -20,6 +24,9 @@ M5Atomとmicro-ROSを使って、複数の超音波センサー情報を配信�
 
 - micro-ROSクライアントとmicro-ROSエージェントの接続方法  
   - USBケーブルを使ったシリアル通信  
+<p align="center">
+<img src="./image/20240222201225.png" />
+</p>
 <br/>
 
 ### micro-ROSエージェントを起動方法(docker利用時)
@@ -77,16 +84,17 @@ average rate: 2.381
 ```
 <br/>
 
+### 注意
+- M5unified を使ってなるべく機種に依存しないように作っていますが、M5Atom Lite 以外の対応予定はありません。
+  - 例: M5AtomS3, M5AtomS3 Liteの場合、内蔵I2Cを使い、シリアル通信はUSBSerialを使う必要があります。また、M5AtomS3は動作しますが遅いです。
+<br/>
 
 ### リンク
-[m5_ros2_multi_ultrasonic](https://github.com/sato-susumu/m5_ros2_multi_ultrasonic)  
-今回作ったプログラム  
-<br/>
 [micro-ROS for PlatformIO](https://github.com/micro-ROS/micro_ros_platformio)  
 [micro-ROS for Arduinoのサンプル](https://github.com/micro-ROS/micro_ros_arduino/tree/iron/examples)  
 micro-ROS for PlatformIOにはサンプルが少ないので、こちらが参考になる。micro-ROS for PlatformIOで使うには微妙に修正が必要。  
 <br/>
-[PaHUB2のドキュメント](https://docs.m5stack.com/en/unit/pahub2)  
 [M5ATOM Liteのドキュメント](https://docs.m5stack.com/en/core/atom_lite)  
+[PaHUB2のドキュメント](https://docs.m5stack.com/en/unit/pahub2)  
 [M5Stack用超音波測距ユニットのドキュメント](https://docs.m5stack.com/en/unit/sonic.i2c)  
 
