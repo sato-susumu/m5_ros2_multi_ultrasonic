@@ -50,7 +50,7 @@ docker run -it --rm -v /dev:/dev -v /dev/shm:/dev/shm --privileged --net=host mi
 <br/>
 
 ### 動作確認
-正しく起動できたら、/ultrasonic0, /ultrasonic1, /ultrasonic2というトピックが作成されます。  
+正しく起動できたら、/ultrasonic0, /ultrasonic1, /ultrasonic2というトピックが配信されます。  
 ```
 $ ros2 topic list
 省略
