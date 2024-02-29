@@ -96,7 +96,13 @@ public:
     MainSerial.begin(115200);
     set_microros_serial_transports(MainSerial);
 
-    RCCHECK(rclc_support_init(&support, 0, NULL, &allocator));
+    while(1) {
+      auto result = rclc_support_init(&support, 0, NULL, &allocator);
+      if(result == RCL_RET_OK) {
+        break;
+      }
+      delay(2000);
+    }
     RCCHECK(rclc_node_init_default(&node, node_name, "", &support));
 
     for (uint8_t channel = 0; channel < SONIC_SENSOR_NUM; channel++)
@@ -182,8 +188,6 @@ void setup()
   M5Controller::begin(node_name);
   node.begin(node_name);
   ultrasonicSensorArray.begin();
-
-  delay(2000);
 }
 
 void loop()
