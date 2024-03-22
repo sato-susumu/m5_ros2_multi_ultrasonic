@@ -108,11 +108,12 @@ public:
     for (uint8_t channel = 0; channel < SONIC_SENSOR_NUM; channel++)
     {
 
-      RCCHECK(rclc_publisher_init_default(
+      RCCHECK(rclc_publisher_init(
           &publisher[channel],
           &node,
           ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, Range),
-          getTopicName(channel)));
+          getTopicName(channel), &rmw_qos_profile_sensor_data)
+      );
     }
   }
 
